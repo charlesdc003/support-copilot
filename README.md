@@ -17,12 +17,12 @@ The policy engine runs after the LLM. It cannot be overridden by model output. A
 - W&B Weave tracing
 - pytest + GitHub Actions CI
 
-## Evaluation Results (20 labeled tickets)
+## Evaluation Results (100 labeled tickets)
 
 | Metric | Score |
 |---|---|
-| Action accuracy | 55% (11/20) |
-| Category accuracy | 55% (11/20) |
+| Action accuracy | 78% (78/100) |
+| Category accuracy | 51% (51/100) |
 | Policy compliance | 100% (0 failures) |
 
 ## Key failure modes
