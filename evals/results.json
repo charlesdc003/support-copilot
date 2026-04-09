@@ -1,0 +1,208 @@
+{
+  "total": 20,
+  "action_accuracy": 0.55,
+  "category_accuracy": 0.55,
+  "policy_failures": 0,
+  "details": [
+    {
+      "ticket_id": "t001",
+      "action_correct": true,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "escalate",
+      "got_action": "escalate",
+      "expected_category": "auth",
+      "got_category": "auth"
+    },
+    {
+      "ticket_id": "t002",
+      "action_correct": false,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "escalate",
+      "expected_category": "billing",
+      "got_category": "billing"
+    },
+    {
+      "ticket_id": "t003",
+      "action_correct": false,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "needs_info",
+      "expected_category": "general",
+      "got_category": "general"
+    },
+    {
+      "ticket_id": "t004",
+      "action_correct": true,
+      "category_correct": false,
+      "policy_fail": false,
+      "expected_action": "escalate",
+      "got_action": "escalate",
+      "expected_category": "auth",
+      "got_category": "feature_request"
+    },
+    {
+      "ticket_id": "t005",
+      "action_correct": false,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "needs_info",
+      "expected_category": "feature_request",
+      "got_category": "feature_request"
+    },
+    {
+      "ticket_id": "t006",
+      "action_correct": false,
+      "category_correct": false,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "needs_info",
+      "expected_category": "auth",
+      "got_category": "general"
+    },
+    {
+      "ticket_id": "t007",
+      "action_correct": true,
+      "category_correct": false,
+      "policy_fail": false,
+      "expected_action": "escalate",
+      "got_action": "escalate",
+      "expected_category": "bug",
+      "got_category": "general"
+    },
+    {
+      "ticket_id": "t008",
+      "action_correct": true,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "auto_reply",
+      "expected_category": "billing",
+      "got_category": "billing"
+    },
+    {
+      "ticket_id": "t009",
+      "action_correct": false,
+      "category_correct": false,
+      "policy_fail": false,
+      "expected_action": "needs_info",
+      "got_action": "auto_reply",
+      "expected_category": "bug",
+      "got_category": "general"
+    },
+    {
+      "ticket_id": "t010",
+      "action_correct": true,
+      "category_correct": false,
+      "policy_fail": false,
+      "expected_action": "escalate",
+      "got_action": "escalate",
+      "expected_category": "auth",
+      "got_category": "bug"
+    },
+    {
+      "ticket_id": "t011",
+      "action_correct": false,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "escalate",
+      "expected_category": "billing",
+      "got_category": "billing"
+    },
+    {
+      "ticket_id": "t012",
+      "action_correct": true,
+      "category_correct": false,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "auto_reply",
+      "expected_category": "general",
+      "got_category": "feature_request"
+    },
+    {
+      "ticket_id": "t013",
+      "action_correct": false,
+      "category_correct": false,
+      "policy_fail": false,
+      "expected_action": "escalate",
+      "got_action": "needs_info",
+      "expected_category": "bug",
+      "got_category": "general"
+    },
+    {
+      "ticket_id": "t014",
+      "action_correct": true,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "auto_reply",
+      "expected_category": "feature_request",
+      "got_category": "feature_request"
+    },
+    {
+      "ticket_id": "t015",
+      "action_correct": true,
+      "category_correct": false,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "auto_reply",
+      "expected_category": "general",
+      "got_category": "feature_request"
+    },
+    {
+      "ticket_id": "t016",
+      "action_correct": true,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "escalate",
+      "got_action": "escalate",
+      "expected_category": "auth",
+      "got_category": "auth"
+    },
+    {
+      "ticket_id": "t017",
+      "action_correct": false,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "needs_info",
+      "got_action": "escalate",
+      "expected_category": "bug",
+      "got_category": "bug"
+    },
+    {
+      "ticket_id": "t018",
+      "action_correct": true,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "auto_reply",
+      "expected_category": "general",
+      "got_category": "general"
+    },
+    {
+      "ticket_id": "t019",
+      "action_correct": false,
+      "category_correct": true,
+      "policy_fail": false,
+      "expected_action": "escalate",
+      "got_action": "needs_info",
+      "expected_category": "general",
+      "got_category": "general"
+    },
+    {
+      "ticket_id": "t020",
+      "action_correct": true,
+      "category_correct": false,
+      "policy_fail": false,
+      "expected_action": "auto_reply",
+      "got_action": "auto_reply",
+      "expected_category": "feature_request",
+      "got_category": "general"
+    }
+  ]
+}
