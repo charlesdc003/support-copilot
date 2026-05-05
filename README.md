@@ -1,57 +1,100 @@
-# Support Copilot
+Support Copilot
 
-![CI](https://github.com/charlesdc003/support-copilot/actions/workflows/ci.yml/badge.svg)
+AI-powered system for automatically triaging support tickets, routing them correctly, and generating draft responses — with a rule-based policy engine to ensure reliability in critical cases.
 
-An AI-powered support ticket triage system that classifies tickets, routes them to the correct action, and generates draft replies — with a deterministic policy engine that overrides the model for critical cases.
+---
 
-## Architecture
-Ticket in → pgvector similarity search → policy engine → llama3.2 (structured JSON) → validated response
+What it does
 
-The policy engine runs after the LLM. It cannot be overridden by model output. Auth tickets always escalate. Enterprise bug tickets always escalate. Low confidence always routes to needs_info.
+- Classifies incoming support tickets
+- Routes tickets based on category and confidence
+- Generates draft replies using an LLM
+- Enforces strict rules for high-risk scenarios (cannot be overridden by AI)
 
-## Stack
+---
 
-- FastAPI + Pydantic v2
-- PostgreSQL + pgvector (semantic retrieval)
-- Ollama — nomic-embed-text embeddings + llama3.2 generation (local, RTX 5080)
-- W&B Weave tracing
-- pytest + GitHub Actions CI
+Why this matters
 
-## Evaluation Results (100 labeled tickets)
+Support teams deal with high ticket volume and inconsistent handling of critical issues.
+This system improves both speed and reliability by combining AI with deterministic rules.
 
-| Metric | Score |
-|---|---|
-| Action accuracy | 78% (78/100) |
-| Category accuracy | 51% (51/100) |
-| Policy compliance | 100% (0 failures) |
+---
 
-## Key failure modes
+Example
 
-- Model over-escalates billing tickets — treats refund requests as high risk
-- Model over-uses needs_info on simple general questions
-- Bug severity assessment is inconsistent — model cannot distinguish minor bugs from critical outages without more context in the knowledge base
-- Category classification collapses to "general" for ambiguous tickets
+Input:
+"Customer cannot access enterprise account after payment"
 
-## What would improve accuracy
+Output:
 
-- Larger knowledge base with more policy documents
-- Few-shot examples in the prompt showing correct classifications
-- A larger local model (llama3.1:70b or similar)
+- Category: Account / Enterprise
+- Action: Escalate
+- Draft reply: Request for verification details
+
+---
+
+Architecture
+
+Ticket → Semantic Search (pgvector) → LLM (Llama 3.2, structured JSON) → Policy Engine → Validated Response
+
+---
+
+Key Feature: Policy Engine (AI Guardrails)
+
+The policy engine runs after the model and cannot be overridden:
+
+- Auth issues → always escalate
+- Enterprise bugs → always escalate
+- Low-confidence outputs → request more information
+
+---
+
+Tech Stack
+
+- FastAPI + Pydantic
+- PostgreSQL + pgvector
+- Ollama (local LLM + embeddings)
+- Weights & Biases (tracing)
+- pytest + GitHub Actions
+
+---
+
+Evaluation (100 labeled tickets)
+
+- Action accuracy: 78%
+- Category accuracy: 51%
+- Policy compliance: 100% (0 failures)
+
+---
+
+Key Failure Modes
+
+- Over-escalation of billing/refund tickets
+- Overuse of "needs_info" for simple queries
+- Poor bug severity classification
+- Category collapse to "general" for ambiguous tickets
+
+---
+
+Planned Improvements
+
+- Expand knowledge base with policy documents
+- Add few-shot examples to prompts
+- Upgrade to larger model (e.g. Llama 70B)
 - Separate classification and generation steps
 
-## Run locally
+---
 
-```bash
+Run Locally
+
 docker compose up -d
 uv sync
 uv run python scripts/setup.py
 uv run uvicorn src.app.main:app --reload
-```
 
-## Eval dataset
+---
 
-100 labeled tickets in `evals/tickets.jsonl`. Run evals with:
+Dataset
 
-```bash
-uv run python scripts/run_evals.py
-```
+100 labeled tickets available in:
+"evals/tickets.jsonl"
